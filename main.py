@@ -34,10 +34,9 @@ match(file_choice):
     case _:
         print("Invalid input.")
 
-
 print("Enter your text now. Enter \"end\" to terminate.")
 n = 0
-with open(full_file_name, 'a') as file:
+with open(full_file_name, 'a', encoding='utf-8') as file:
     while True:
         try: 
             s = input()
@@ -46,9 +45,8 @@ with open(full_file_name, 'a') as file:
                 n += 1
             else:
                 break
-        except UnicodeEncodeError:
-            print("Your text contains invalid characters. Please enter only Unicode characters.")
-            
+        except:
+            print("Invalid input.")
 
     print(f"Input reading complete. You entered {n} lines.")
 
